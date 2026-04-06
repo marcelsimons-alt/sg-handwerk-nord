@@ -4,110 +4,247 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SG Handwerk Nord — Hamburg</title>
-  <meta name="description" content="SG Handwerk Nord in Hamburg. Handwerker / Bau. Professioneller Service.">
-  <meta property="og:title" content="SG Handwerk Nord">
-  <meta property="og:description" content="Handwerker / Bau in Hamburg">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="SG Handwerk Nord in Hamburg. Handwerker / Bau. Jetzt Termin vereinbaren.">
+  <meta property="og:title" content="SG Handwerk Nord — Handwerker / Bau in Hamburg">
+  <meta property="og:description" content="Qualitätsarbeit aus Meisterhand">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{font-family:'Inter',sans-serif;color:#1C1917;background:#FFFBEB;}
     a{text-decoration:none;color:#D97706;}
-    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;}
-    nav a{margin:0 16px;font-weight:500;transition:color 0.3s;}
-    nav a:hover{color:#FCD34D;}
-    .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#D97706,#1C1917);color:white;padding:40px 20px;}
-    .hero h1{font-family:'Outfit',serif;font-size:clamp(36px,6vw,72px);margin-bottom:16px;animation:fadeInUp 1s ease-out;}
-    .hero p{font-size:clamp(16px,2vw,22px);opacity:0.9;max-width:600px;margin:0 auto 32px;animation:fadeInUp 1s ease-out 0.2s both;}
-    .btn{display:inline-block;padding:16px 40px;background:#FCD34D;color:#1C1917;font-weight:600;border-radius:50px;font-size:18px;transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;animation:fadeInUp 1s ease-out 0.4s both;}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,0.2);}
-    footer{background:#1C1917;color:white;padding:60px 20px;text-align:center;}
-    footer a{color:#FCD34D;}
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
-    @media(max-width:768px){nav{flex-direction:column;gap:8px;} nav a{margin:4px 8px;}}
+    img{max-width:100%;height:auto;}
+
+    /* Navigation */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);padding:0 40px;height:72px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.06);}
+    .nav-logo{font-family:'Outfit',serif;font-size:22px;font-weight:700;color:#D97706;}
+    .nav-links{display:flex;gap:32px;}
+    .nav-links a{color:#1C1917;font-weight:500;font-size:15px;transition:color 0.3s;}
+    .nav-links a:hover{color:#D97706;}
+    .nav-cta{padding:10px 24px;background:#D97706;color:white;border-radius:50px;font-weight:600;font-size:14px;transition:transform 0.3s,box-shadow 0.3s;}
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 12px #D9770644;}
+
+    /* Hero */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:40px 20px;}
+    .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80') center/cover no-repeat;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.7) 100%);}
+    .hero-content{position:relative;z-index:2;max-width:800px;}
+    .hero h1{font-family:'Outfit',serif;font-size:clamp(36px,7vw,72px);color:white;margin-bottom:16px;line-height:1.1;}
+    .hero p{font-size:clamp(17px,2.5vw,22px);color:rgba(255,255,255,0.85);margin-bottom:12px;max-width:600px;margin-left:auto;margin-right:auto;}
+    .hero .rating{display:inline-flex;align-items:center;gap:8px;margin:16px 0;background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:8px 20px;border-radius:50px;}
+    .hero .rating span{color:white;}
+    .btn-primary{display:inline-block;padding:18px 44px;background:#D97706;color:white;font-weight:600;border-radius:50px;font-size:18px;margin-top:24px;transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px #D9770655;color:white;}
+
+    /* Sections */
+    .section{padding:100px 40px;}
+    .section-title{font-family:'Outfit',serif;font-size:clamp(28px,4vw,44px);text-align:center;margin-bottom:16px;color:#1C1917;}
+    .section-subtitle{text-align:center;color:#555;font-size:18px;max-width:600px;margin:0 auto 60px;line-height:1.6;}
+    .cards{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;max-width:1100px;margin:0 auto;}
+
+    /* About */
+    .about-grid{display:flex;gap:60px;max-width:1100px;margin:0 auto;align-items:center;}
+    .about-img{flex:1;border-radius:20px;overflow:hidden;min-height:400px;background-size:cover;background-position:center;}
+    .about-text{flex:1;}
+    .about-text h2{font-family:'Outfit',serif;font-size:clamp(28px,3.5vw,40px);margin-bottom:20px;color:#1C1917;}
+    .about-text p{color:#555;line-height:1.8;font-size:17px;margin-bottom:16px;}
+
+    /* Contact */
+    .contact{padding:100px 40px;text-align:center;background:#FFFBEB;}
+    .contact-info{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;}
+    .contact-item{display:flex;align-items:center;gap:12px;font-size:18px;}
+    .contact-icon{width:48px;height:48px;background:#D97706;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:white;}
+
+    /* CTA Banner */
+    .cta-banner{padding:80px 40px;background:linear-gradient(135deg,#D97706,#1C1917);text-align:center;color:white;}
+    .cta-banner h2{font-family:'Outfit',serif;font-size:clamp(24px,4vw,40px);margin-bottom:16px;}
+    .cta-banner p{font-size:18px;opacity:0.9;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
+    .btn-white{display:inline-block;padding:16px 40px;background:white;color:#D97706;font-weight:600;border-radius:50px;font-size:18px;transition:transform 0.3s;}
+    .btn-white:hover{transform:translateY(-2px);}
+
+    /* Footer */
+    .footer{background:#1a1a1a;color:rgba(255,255,255,0.7);padding:60px 40px;text-align:center;}
+    .footer a{color:#D97706;}
+    .footer-links{margin:20px 0;display:flex;gap:24px;justify-content:center;}
+
+    /* Animations */
+    .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.8s,transform 0.8s;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+
+    /* Responsive */
+    @media(max-width:768px){
+      .nav{padding:0 16px;}
+      .nav-links{display:none;}
+      .section{padding:60px 20px;}
+      .about-grid{flex-direction:column;gap:30px;}
+      .about-img{min-height:250px;width:100%;}
+      .contact-info{flex-direction:column;align-items:center;}
+      .cards>div{min-width:100%!important;}
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <strong style="font-family:'Outfit',serif;font-size:22px;color:#D97706;">SG Handwerk Nord</strong>
-    <div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-logo">SG Handwerk Nord</div>
+    <div class="nav-links">
       <a href="#leistungen">Leistungen</a>
       <a href="#ueber">Über uns</a>
+      <a href="#bewertungen">Bewertungen</a>
       <a href="#kontakt">Kontakt</a>
     </div>
+    <a href="#kontakt" class="nav-cta">Kostenloses Angebot anfordern</a>
   </nav>
 
-  <div class="hero">
-    <div>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
       <h1>SG Handwerk Nord</h1>
-      <p>Handwerker / Bau in Hamburg — Willkommen bei uns</p>
+      <p>Qualitätsarbeit aus Meisterhand</p>
       
-    <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
-      <span style="color:#FFD700;font-size:20px;">★★★★★</span>
-      <span style="color:#1C1917;font-weight:600;">5 / 5</span>
-      <span style="color:#666;">(2 Bewertungen)</span>
+      <div class="rating">
+        <span style="color:#FFD700;">★★★★★</span>
+        <span style="font-weight:600;">5 / 5</span>
+        <span style="opacity:0.8;">(2 Bewertungen)</span>
+      </div>
+      <br>
+      <a href="#kontakt" class="btn-primary">Kostenloses Angebot anfordern</a>
     </div>
-      <a href="#kontakt" class="btn" style="margin-top:24px;">Jetzt Kontakt aufnehmen</a>
+  </header>
+
+  <!-- Leistungen -->
+  <section id="leistungen" class="section" style="background:white;">
+    <h2 class="section-title fade-in">Unsere Leistungen</h2>
+    <p class="section-subtitle fade-in">Professioneller Service in Hamburg — individuell auf Ihre Bedürfnisse zugeschnitten.</p>
+    <div class="cards">
+      
+        <div style="background:#FFFFFF;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:transform 0.3s;flex:1;min-width:220px;">
+          <div style="font-size:36px;margin-bottom:12px;">🏠</div>
+          <h3 style="font-family:'Outfit',serif;font-size:20px;color:#1C1917;margin-bottom:8px;">Renovierung</h3>
+          <p style="color:#555;line-height:1.6;font-size:15px;">Bad, Küche oder komplette Wohnung — alles aus einer Hand</p>
+        </div>
+
+        <div style="background:#FFFFFF;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:transform 0.3s;flex:1;min-width:220px;">
+          <div style="font-size:36px;margin-bottom:12px;">🔧</div>
+          <h3 style="font-family:'Outfit',serif;font-size:20px;color:#1C1917;margin-bottom:8px;">Sanitär & Heizung</h3>
+          <p style="color:#555;line-height:1.6;font-size:15px;">Installation, Wartung & Reparatur</p>
+        </div>
+
+        <div style="background:#FFFFFF;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:transform 0.3s;flex:1;min-width:220px;">
+          <div style="font-size:36px;margin-bottom:12px;">⚡</div>
+          <h3 style="font-family:'Outfit',serif;font-size:20px;color:#1C1917;margin-bottom:8px;">Elektroinstallation</h3>
+          <p style="color:#555;line-height:1.6;font-size:15px;">Sicher und normgerecht — vom Profi</p>
+        </div>
+
+        <div style="background:#FFFFFF;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:transform 0.3s;flex:1;min-width:220px;">
+          <div style="font-size:36px;margin-bottom:12px;">🖌️</div>
+          <h3 style="font-family:'Outfit',serif;font-size:20px;color:#1C1917;margin-bottom:8px;">Malerarbeiten</h3>
+          <p style="color:#555;line-height:1.6;font-size:15px;">Innen & Außen — sauber und termingerecht</p>
+        </div>
     </div>
-  </div>
-
-  <div id="leistungen">
-    
-    <section style="padding:80px 20px;max-width:1100px;margin:0 auto;">
-      <h2 style="font-family:'Outfit',serif;font-size:clamp(28px,4vw,42px);color:#1C1917;margin-bottom:24px;text-align:center;">Hero mit Projekt-Fotos</h2>
-      <p style="color:#555;text-align:center;max-width:700px;margin:0 auto;line-height:1.8;">
-        Entdecken Sie unser Angebot bei SG Handwerk Nord in Hamburg. Wir freuen uns auf Sie.
-      </p>
-    </section>
-
-    <section style="padding:80px 20px;max-width:1100px;margin:0 auto;background:#FFFBEB;">
-      <h2 style="font-family:'Outfit',serif;font-size:clamp(28px,4vw,42px);color:#1C1917;margin-bottom:24px;text-align:center;">Leistungen</h2>
-      <p style="color:#555;text-align:center;max-width:700px;margin:0 auto;line-height:1.8;">
-        Entdecken Sie unser Angebot bei SG Handwerk Nord in Hamburg. Wir freuen uns auf Sie.
-      </p>
-    </section>
-
-    <section style="padding:80px 20px;max-width:1100px;margin:0 auto;">
-      <h2 style="font-family:'Outfit',serif;font-size:clamp(28px,4vw,42px);color:#1C1917;margin-bottom:24px;text-align:center;">Referenzen/Projekte Galerie</h2>
-      <p style="color:#555;text-align:center;max-width:700px;margin:0 auto;line-height:1.8;">
-        Entdecken Sie unser Angebot bei SG Handwerk Nord in Hamburg. Wir freuen uns auf Sie.
-      </p>
-    </section>
-
-    <section style="padding:80px 20px;max-width:1100px;margin:0 auto;background:#FFFBEB;">
-      <h2 style="font-family:'Outfit',serif;font-size:clamp(28px,4vw,42px);color:#1C1917;margin-bottom:24px;text-align:center;">Kundenbewertungen</h2>
-      <p style="color:#555;text-align:center;max-width:700px;margin:0 auto;line-height:1.8;">
-        Entdecken Sie unser Angebot bei SG Handwerk Nord in Hamburg. Wir freuen uns auf Sie.
-      </p>
-    </section>
-
-    <section style="padding:80px 20px;max-width:1100px;margin:0 auto;">
-      <h2 style="font-family:'Outfit',serif;font-size:clamp(28px,4vw,42px);color:#1C1917;margin-bottom:24px;text-align:center;">Kostenloses Angebot CTA</h2>
-      <p style="color:#555;text-align:center;max-width:700px;margin:0 auto;line-height:1.8;">
-        Entdecken Sie unser Angebot bei SG Handwerk Nord in Hamburg. Wir freuen uns auf Sie.
-      </p>
-    </section>
-
-    <section style="padding:80px 20px;max-width:1100px;margin:0 auto;background:#FFFBEB;">
-      <h2 style="font-family:'Outfit',serif;font-size:clamp(28px,4vw,42px);color:#1C1917;margin-bottom:24px;text-align:center;">Kontakt + Einsatzgebiet</h2>
-      <p style="color:#555;text-align:center;max-width:700px;margin:0 auto;line-height:1.8;">
-        Entdecken Sie unser Angebot bei SG Handwerk Nord in Hamburg. Wir freuen uns auf Sie.
-      </p>
-    </section>
-  </div>
-
-  <section id="kontakt" style="padding:80px 20px;background:#FFFBEB;text-align:center;">
-    <h2 style="font-family:'Outfit',serif;font-size:clamp(28px,4vw,42px);color:#1C1917;margin-bottom:32px;">Kontakt</h2>
-    <p style="font-size:20px;margin:12px 0;">📞 <a href="tel:01751953733">0175 1953733</a></p>
-    <p style="font-size:20px;margin:12px 0;">✉️ <a href="mailto:info@sg-handwerknord.de">info@sg-handwerknord.de</a></p>
-    <p style="font-size:18px;margin:12px 0;color:#666;">📍 Hamburg</p>
   </section>
 
-  <footer>
-    <p style="margin-bottom:8px;"><strong>SG Handwerk Nord</strong></p>
+  <!-- Über uns -->
+  
+  <section id="ueber" class="section" style="background:#FFFBEB;">
+    <div class="about-grid fade-in">
+      <div class="about-img" style="background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80');"></div>
+      <div class="about-text">
+        <h2>Über uns</h2>
+        <p>Als erfahrener Handwerksbetrieb stehen wir für Qualität, Zuverlässigkeit und faire Preise. Ob kleine Reparatur oder große Renovierung — wir sind Ihr Partner für alle Arbeiten rund ums Haus.</p>
+        <p style="color:#D97706;font-weight:600;">📍 Hamburg</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bewertungen -->
+  
+  <section id="bewertungen" class="section" style="background:white;">
+    <h2 class="section-title fade-in">Kundenstimmen</h2>
+    <p class="section-subtitle fade-in">5 von 5 Sternen bei 2 Bewertungen auf Google</p>
+    <div class="cards">
+      
+        <div style="background:#FFFFFF;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.08);flex:1;min-width:280px;">
+          <div style="color:#FFD700;font-size:18px;margin-bottom:12px;">★★★★★</div>
+          <p style="color:#1C1917;line-height:1.7;font-style:italic;margin-bottom:16px;">"Pünktlich, sauber und top Qualität. So muss Handwerk sein!"</p>
+          <p style="color:#D97706;font-weight:600;">— Wolfgang H.</p>
+        </div>
+
+        <div style="background:#FFFFFF;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.08);flex:1;min-width:280px;">
+          <div style="color:#FFD700;font-size:18px;margin-bottom:12px;">★★★★★</div>
+          <p style="color:#1C1917;line-height:1.7;font-style:italic;margin-bottom:16px;">"Unser Bad wurde komplett renoviert — besser als erwartet!"</p>
+          <p style="color:#D97706;font-weight:600;">— Familie Schneider</p>
+        </div>
+
+        <div style="background:#FFFFFF;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.08);flex:1;min-width:280px;">
+          <div style="color:#FFD700;font-size:18px;margin-bottom:12px;">★★★★★</div>
+          <p style="color:#1C1917;line-height:1.7;font-style:italic;margin-bottom:16px;">"Zuverlässig, fair und handwerklich erstklassig. Gerne wieder!"</p>
+          <p style="color:#D97706;font-weight:600;">— Ralf B.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <h2>Kostenloses Angebot anfordern</h2>
+    <p>Wir freuen uns darauf, Sie kennenzulernen.</p>
+    <a href="#kontakt" class="btn-white">📞 Jetzt anrufen</a>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="contact">
+    <h2 class="section-title">Kontakt</h2>
+    <p class="section-subtitle">Wir sind für Sie da — melden Sie sich gerne.</p>
+    <div class="contact-info">
+      <div class="contact-item"><div class="contact-icon">📞</div><a href="tel:01751953733" style="color:#1C1917;font-size:18px;">0175 1953733</a></div>
+      <div class="contact-item"><div class="contact-icon">✉️</div><a href="mailto:info@sg-handwerknord.de" style="color:#1C1917;font-size:18px;">info@sg-handwerknord.de</a></div>
+      <div class="contact-item"><div class="contact-icon">📍</div><span style="color:#1C1917;font-size:18px;">Hamburg</span></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p style="font-family:'Outfit',serif;font-size:22px;color:#D97706;margin-bottom:8px;">SG Handwerk Nord</p>
     <p>📞 0175 1953733</p>
-    <p style="margin-top:16px;opacity:0.6;font-size:14px;">© 2026 SG Handwerk Nord. Demo-Website von Upgrade your Website.</p>
-    <p style="margin-top:8px;"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+    <div class="footer-links">
+      <a href="#impressum">Impressum</a>
+      <a href="#datenschutz">Datenschutz</a>
+    </div>
+    <p style="margin-top:24px;font-size:13px;opacity:0.5;">© 2026 SG Handwerk Nord. Erstellt von Upgrade your Website.</p>
   </footer>
+
+  <!-- Impressum Modal -->
+  <section id="impressum" style="padding:60px 40px;display:none;background:white;max-width:800px;margin:40px auto;">
+    <h2 style="font-family:'Outfit',serif;margin-bottom:20px;">Impressum</h2>
+    <p>SG Handwerk Nord<br>Hamburg, Deutschland</p>
+    <p>Tel: 0175 1953733</p>
+    <p>E-Mail: info@sg-handwerknord.de</p>
+    <p style="margin-top:16px;font-size:14px;color:#555;">Dies ist eine Demo-Website. Die vollständigen Impressumsangaben werden nach Auftragserteilung ergänzt.</p>
+  </section>
+
+  <!-- Scroll Animation -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Show impressum/datenschutz
+    document.querySelectorAll('a[href="#impressum"],a[href="#datenschutz"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const imp = document.getElementById('impressum');
+        imp.style.display = imp.style.display === 'none' ? 'block' : 'none';
+        imp.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
